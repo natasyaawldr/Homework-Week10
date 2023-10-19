@@ -35,8 +35,8 @@ class Movies {
 
     static async updateMovie(movieId, movieData) {
        try {
-         const query = 'UPDATE movies SET title = $1 WHERE id = $4 RETURNING *';
-         const values = [movieData.title, movieId];
+         const query = 'UPDATE movies SET title = $1, genres = $2, year = $3 WHERE id = $4 RETURNING *';
+         const values = [movieData.title, movieData.genres, movieData.year, movieId];
          const { rows } = await pool.query(query, values);
          return rows[0];
        } catch (error) {

@@ -46,7 +46,7 @@ class MovieController {
     try {
       const updatedMovie = await MovieService.updateMovie(movieId, movieData);
       if (updatedMovie) {
-        res.json({ movie: updatedMovie });
+        res.json({ message : 'The Movie has been successfully Updated' });
       } else {
         res.status(404).json({ error: 'Film not found' });
       }
